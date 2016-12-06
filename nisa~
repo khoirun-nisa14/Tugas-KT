@@ -1,0 +1,18 @@
+/* Pendeteksi Gerak */
+const byte ledPin = 8;		// internal LED pada pin 8
+const byte motionPin = 2;	// pin Signal sensor gerak dihubungkan dengan port 2
+byte senseMotion = 0;		// variable deteksi gerak
+void setup() {
+pinMode(ledPin, OUTPUT);
+pinMode(motionPin, INPUT);
+}
+void loop()
+{
+senseMotion = digitalRead(motionPin);	// membaca nilai sensor gerak
+if (senseMotion == HIGH) {		// jika terdeteksi ada gerakan
+digitalWrite(ledPin, HIGH);
+delay(4000);
+} else {				// jika tidak ada gerakan
+digitalWrite(ledPin, LOW);
+}
+}
